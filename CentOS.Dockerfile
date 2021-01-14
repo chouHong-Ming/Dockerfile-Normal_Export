@@ -19,9 +19,13 @@ RUN wget https://github.com/prometheus/snmp_exporter/releases/download/v${SNMP_E
 
 RUN cp node_exporter-${NODE_EXPORTER_VERSION}.linux-386/node_exporter /bin/node_exporter
 
-RUN cp blackbox_exporter-${BLACKBOX_EXPORTER_VERSION}.linux-386/blackbox_exporter  /bin/blackbox_exporter
+RUN mkdir -p /etc/blackbox_exporter
+RUN cp blackbox_exporter-${BLACKBOX_EXPORTER_VERSION}.linux-386/blackbox_exporter  /bin/blackbox_exporter && \
+    cp blackbox_exporter-${BLACKBOX_EXPORTER_VERSION}.linux-386/blackbox.yml /etc/blackbox_exporter/config.yml
 
-RUN cp snmp_exporter-${SNMP_EXPORTER_VERSION}.linux-386/snmp_exporter  /bin/snmp_exporter
+RUN mkdir -p /etc/snmp_exporter/
+RUN cp snmp_exporter-${SNMP_EXPORTER_VERSION}.linux-386/snmp_exporter  /bin/snmp_exporter && \
+    cp snmp_exporter-${SNMP_EXPORTER_VERSION}.linux-386/snmp.yml /etc/snmp_exporter/snmp.yml
 
 
 RUN rm -rf node_exporter-${NODE_EXPORTER_VERSION}.linux-386* blackbox_exporter-${BLACKBOX_EXPORTER_VERSION}.linux-386* snmp_exporter-${SNMP_EXPORTER_VERSION}.linux-386* && \
