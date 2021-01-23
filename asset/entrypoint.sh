@@ -25,23 +25,23 @@ ln -sf /usr/share/zoneinfo/$TIMEZONE /etc/localtime
 
 if [ $NODE_EXPORTER == "true" ]; then
     if [ $BLACKBOX_EXPORTER == "true" ]; then
-        /bin/blackbox_exporter --config.file=/etc/blackbox_exporter/config.yml \
+        /bin/blackbox_exporter --config.file=/etc/blackbox_exporter/blackbox_exporter.yml \
             $BLACKBOX_EXPORTER_OPT >> /var/log/blackbox_exporter.log 2>&1 &
     fi
     if [ $SNMP_EXPORTER == "true" ]; then
-        /bin/snmp_exporter --config.file=/etc/snmp_exporter/snmp.yml \
+        /bin/snmp_exporter --config.file=/etc/snmp_exporter/snmp_exporter.yml \
             $SNMP_EXPORTER_OPT >> /var/log/snmp_exporter.log 2>&1 &
     fi
     /bin/node_exporter $NODE_EXPORTER_OPT
 elif [ $BLACKBOX_EXPORTER == "true" ]; then
     if [ $SNMP_EXPORTER == "true" ]; then
-        /bin/snmp_exporter --config.file=/etc/snmp_exporter/snmp.yml \
+        /bin/snmp_exporter --config.file=/etc/snmp_exporter/snmp_exporter.yml \
             $SNMP_EXPORTER_OPT >> /var/log/snmp_exporter.log 2>&1 &
     fi
-    /bin/blackbox_exporter --config.file=/etc/blackbox_exporter/config.yml \
+    /bin/blackbox_exporter --config.file=/etc/blackbox_exporter/blackbox_exporter.yml \
         $BLACKBOX_EXPORTER_OPT
 elif [ $SNMP_EXPORTER == "true" ]; then
-    /bin/snmp_exporter --config.file=/etc/snmp_exporter/snmp.yml \
+    /bin/snmp_exporter --config.file=/etc/snmp_exporter/snmp_exporter.yml \
         $SNMP_EXPORTER_OPT
 else
     echo "Nothing is enabled. Exit..."
