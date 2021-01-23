@@ -10,11 +10,11 @@ test -z $BLACKBOX_EXPORTER_OPT || echo "Run Blackbox Exporter wiht option "$BLAC
 test -z $SNMP_EXPORTER_OPT || echo "Run SNMP Exporter wiht option "$SNMP_EXPORTER_OPT
 
 
-if [ ! -f /etc/blackbox_exporter/config.yml ]; then
+if [ ! -f /etc/blackbox_exporter/blackbox_exporter.yml ]; then
     echo "[Info] Not found blackbox_exporter/config.yml, Blackbox Exporter will not be started."
     BLACKBOX_EXPORTER="false"
 fi
-if [ ! -f /etc/snmp_exporter/snmp.yml ]; then
+if [ ! -f /etc/snmp_exporter/snmp_exporter.yml ]; then
     echo "[Info] Not found snmp_exporter/snmp.yml, SNMP Exporter will not be started."
     SNMP_EXPORTER="false"
 fi

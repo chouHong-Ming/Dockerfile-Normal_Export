@@ -21,11 +21,11 @@ RUN cp node_exporter-${NODE_EXPORTER_VERSION}.linux-386/node_exporter /bin/node_
 
 RUN mkdir -p /etc/blackbox_exporter
 RUN cp blackbox_exporter-${BLACKBOX_EXPORTER_VERSION}.linux-386/blackbox_exporter  /bin/blackbox_exporter && \
-    cp blackbox_exporter-${BLACKBOX_EXPORTER_VERSION}.linux-386/blackbox.yml /etc/blackbox_exporter/config.yml
+    cp blackbox_exporter-${BLACKBOX_EXPORTER_VERSION}.linux-386/blackbox.yml /etc/blackbox_exporter/blackbox_exporter.yml
 
 RUN mkdir -p /etc/snmp_exporter/
 RUN cp snmp_exporter-${SNMP_EXPORTER_VERSION}.linux-386/snmp_exporter  /bin/snmp_exporter && \
-    cp snmp_exporter-${SNMP_EXPORTER_VERSION}.linux-386/snmp.yml /etc/snmp_exporter/snmp.yml
+    cp snmp_exporter-${SNMP_EXPORTER_VERSION}.linux-386/snmp.yml /etc/snmp_exporter/snmp_exporter.yml
 
 
 RUN rm -rf node_exporter-${NODE_EXPORTER_VERSION}.linux-386* blackbox_exporter-${BLACKBOX_EXPORTER_VERSION}.linux-386* snmp_exporter-${SNMP_EXPORTER_VERSION}.linux-386* && \
