@@ -1,0 +1,21 @@
+version: "3.7"
+services:
+  server:
+    image: chouhongming/prometheus-normal-exporter
+    ports:
+      - "9100:9100/udp"
+      - "9115:9115/udp"
+      - "9116:9116/udp"
+    # volumes:
+    #   - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    #   - ./alertmanager.yml:/etc/alertmanager/alertmanager.yml
+    #   - ./prometheus_storage:/prometheus
+    #   - ./alertmanager_storage:/alertmanager
+    environment:
+      - NODE_EXPORTER=true
+      - BLACKBOX_EXPORTER=true
+      - SNMP_EXPORTER=true
+      - TIMEZONE=UTC
+      - NODE_EXPORTER_OPT=
+      - BLACKBOX_EXPORTER_OPT=
+      - SNMP_EXPORTER_OPT=
