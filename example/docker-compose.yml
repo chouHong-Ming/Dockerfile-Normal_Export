@@ -3,9 +3,9 @@ services:
   server:
     image: chouhongming/prometheus-normal-exporter
     ports:
-      - "9100:9100/udp"
-      - "9115:9115/udp"
-      - "9116:9116/udp"
+      - "9100:9100/tcp"
+      - "9115:9115/tcp"
+      - "9116:9116/tcp"
     volumes:
       - ./blackbox_exporter.yml:/etc/blackbox_exporter/blackbox_exporter.yml
       - ./snmp_exporter.yml:/etc/snmp_exporter/snmp_exporter.yml
