@@ -1,6 +1,6 @@
 version: "3.7"
 services:
-  server:
+  exporter:
     image: chouhongming/prometheus-normal-exporter
     ports:
       - "9100:9100/tcp"
@@ -17,3 +17,5 @@ services:
       - NODE_EXPORTER_OPT=
       - BLACKBOX_EXPORTER_OPT=
       - SNMP_EXPORTER_OPT=
+
+      

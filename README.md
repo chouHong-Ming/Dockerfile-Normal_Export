@@ -32,8 +32,10 @@ If you want to rebuild the image, you can replace `image: chouhongming/prometheu
 ```
 version: "3.7"
 services:
-  core:
-    build: ..
+  exporter:
+    build:
+      context: ..
+      dockerfile: Alpine.Dockerfile
     ports:
       - "9100:9100/tcp"
       - "9115:9115/tcp"
@@ -244,7 +246,7 @@ After your done the `k8s-resource.yml` file, you can apply to the Kubernetes clu
 
     ```
     usage: snmp_exporter [<flags>]
-    
+
     Flags:
     -h, --help                    Show context-sensitive help (also try --help-long and --help-man).
         --snmp.wrap-large-counters  
