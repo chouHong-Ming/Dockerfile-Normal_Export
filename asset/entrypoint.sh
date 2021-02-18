@@ -4,10 +4,10 @@
 test -z $NODE_EXPORTER && NODE_EXPORTER="true"
 test -z $BLACKBOX_EXPORTER && BLACKBOX_EXPORTER="true"
 test -z $SNMP_EXPORTER && SNMP_EXPORTER="true"
-test -z $TIMEZONE && TIMEZONE="UTC"
-test -z $NODE_EXPORTER_OPT || echo "Run Node Exporter wiht option "$NODE_EXPORTER_OPT
-test -z $BLACKBOX_EXPORTER_OPT || echo "Run Blackbox Exporter wiht option "$BLACKBOX_EXPORTER_OPT
-test -z $SNMP_EXPORTER_OPT || echo "Run SNMP Exporter wiht option "$SNMP_EXPORTER_OPT
+test -z "$TIMEZONE" && TIMEZONE="UTC"
+test -z "$NODE_EXPORTER_OPT" || echo "Run Node Exporter wiht option "$NODE_EXPORTER_OPT
+test -z "$BLACKBOX_EXPORTER_OPT" || echo "Run Blackbox Exporter wiht option "$BLACKBOX_EXPORTER_OPT
+test -z "$SNMP_EXPORTER_OPT" || echo "Run SNMP Exporter wiht option "$SNMP_EXPORTER_OPT
 
 
 if [ ! -f /etc/blackbox_exporter/blackbox_exporter.yml ]; then
