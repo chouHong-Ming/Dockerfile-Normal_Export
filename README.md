@@ -1,5 +1,5 @@
 # Dockerfile-Prometheus_Normal_Exporter
-The Image builds the Prometheus node exporter, blackbox exporter, and SNMP exporter service.
+Use to build the image to run the Prometheus node exporter, blackbox exporter, and SNMP exporter service
 
 ## Description
 An container image for running Prometheus node exporter, blackbox exporter, and SNMP exporter and let you can run there three services in one container or more. So that you can manage your exporter more easily.
